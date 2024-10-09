@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joaquín Fuenzalida</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header with Profile Picture on the Left, Name below, and Description on the Right -->
+    <header>
+        <div class="header-container">
+            <!-- Picture on the Left -->
+            <div class="profile-picture">
+                <img src="picture1.png" alt="Joaquín Fuenzalida">
+                <h1>Joaquín Fuenzalida</h1>
+            </div>
+
+            <!-- Description on the Right -->
+            <div class="description">
+                <p>
+                    I am a PhD candidate in Economics at the University of California, Berkeley. I am an applied microeconomist, and my research focuses on the effects of public policy on Latin America, with special emphasis on education. Prior to coming to Berkeley, I got my B.A. and M.A. in Economics at Pontificia Universidad Catolica de Chile.
+                </p>
+                <p style="margin-top: 0;">I am currently in the Job Market (Fall 2024).</p>
+                <p style="margin-top: 10px;">
+                    Email: <a href="mailto:jfuenzalida@berkeley.edu">jfuenzalida@berkeley.edu</a> | Office 524, Evans Hall, UC Berkeley
+                </p>
+                <!-- LinkedIn and Twitter links -->
+                <p>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+                    <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation (For easy scroll navigation) -->
+    <nav>
+        <ul>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#cv">CV</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Research Section -->
+    <section id="research">
+        <h2>Research</h2>
+        <h3>Working Papers</h3>
+        <ul>
+            <li class="paper-title" onclick="togglePaperDetails('paper1')">
+                <strong>The Effect of Homeownership Subsidies on Children: Evidence from Chile [Job Market Paper]</strong> <span class="arrow">&#9662;</span>
+            </li>
+            <div id="paper1" class="paper-details">
+                <p>Co-authors: Felipe Vial and Harrison Wheeler</p>
+                <p>This paper explores the impact of government subsidies on children's educational outcomes. 
+                <a href="your-workingpaper1.pdf" target="_blank">Download Draft</a></p>
+            </div>
+
+            <li class="paper-title" onclick="togglePaperDetails('paper2')">
+                <strong>The Effects of Online Education on Market Structure and Student Outcomes</strong> <span class="arrow">&#9662;</span>
+            </li>
+            <div id="paper2" class="paper-details">
+                <p>Co-authors: Nano Barahona, Cahue Dobbin, and Sebastián Otero</p>
+                <p>We study the impact of a rapid expansion of the online for-profit tertiary education sector in Brazil over the past 15 years on market structure and students’ enrollment. We leverage variation across regions with differential exposure to potential entrants induced by a regulatory reform that decreased the cost of opening online degrees in certain areas of study. We find that online degrees’ entry to local markets expands access to tertiary education but also diverts students from alternative in-person degrees. Increased competition decreases in-person degrees’ market power, which lowers prices but deters entry. We develop and estimate an entry and exit model where institutions choose a bundle of degrees to offer and what tuition fees to charge. We use the model to quantify the effects of the rapid expansion in online education supply on students’ educational choices. We find that, in the absence of online education, the average student would enroll in programs with a 2.9% higher value-added. Students between 18- and 25-years old benefit from the absence of online education, while students above 25 years old are harmed. We find that targeted policies allowing only older cohorts to attend online education can keep young students at in-person degrees, reducing schools’ exit and increasing the potential gains in value-added for all cohorts.
+                <a href="your-workingpaper2.pdf" target="_blank">Download Draft</a></p>
+            </div>
+        </ul>
+
+        <!-- More space between Working Papers and Selected Work in Progress -->
+        <div style="margin-top: 40px;"></div>
+
+        <h3>Selected Work in Progress</h3>
+        <ul>
+            <li class="paper-title" onclick="togglePaperDetails('paper3')">
+                <strong>The Role of Housing Supply in Shaping Affordability</strong> <span class="arrow">&#9662;</span>
+            </li>
+            <div id="paper3" class="paper-details">
+                <p>Co-authors: Felipe Sepulveda</p>
+                <p>Analyzing the correlation between household size and academic performance.
+                <a href="your-workinprogress1.pdf" target="_blank">Download Abstract</a></p>
+            </div>
+
+            <li class="paper-title" onclick="togglePaperDetails('paper4')">
+                <strong>Performance pay and competition at School: Evidence from Chile</strong> <span class="arrow">&#9662;</span>
+            </li>
+            <div id="paper4" class="paper-details">
+                <p>Co-authors: Felipe Sepulveda</p>
+                <p>We study the impact of a performance-pay policy implemented in 2012 in Chile targeted to vulnerable middle and high school students. In particular, we estimate the short-term effects of this policy on grades, attendance, test scores, and college enrollment and the long-term effects by looking labor market outcomes. To estimate the effects of the policy, we leverage the assignation process, which only allows students with a vulnerability score below 99 to receive the transfer. This creates arbitrary cutoffs that we use to estimate a sharp regression discontinuity by comparing students just above and below this threshold. We also use the fact that eligible students receive the reward only if they are in the top 15% or 30% of the class to run another version of the RD, using as running variable the grade percentile, comparing students that are just above the threshold, with the ones just below. This allows us to estimate the subsequent effect of this payment on the students' academic trajectories. Finally, we show the differential impact of the policy depending on the level of competition within their classrooms, given by the fraction of eligible students.
+                <a href="your-workinprogress2.pdf" target="_blank">Download Abstract</a></p>
+            </div>
+        </ul>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv">
+        <h2>CV</h2>
+        <p><a href="your-cv.pdf" target="_blank">Download my CV</a></p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:jfuenzalida@berkeley.edu">jfuenzalida@berkeley.edu</a></p>
+        <p>Office 524, Evans Hall, UC Berkeley</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Joaquín Fuenzalida</p>
+    </footer>
+
+    <script>
+        function togglePaperDetails(paperId) {
+            var paper = document.getElementById(paperId);
+            if (paper.style.display === "none" || paper.style.display === "") {
+                paper.style.display = "block";
+            } else {
+                paper.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -68,6 +68,31 @@ header {
     text-decoration: underline;
 }
 
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Stack picture and description vertically */
+        text-align: center; /* Center text and image on smaller screens */
+    }
+
+    .profile-picture {
+        margin-right: 0; /* Remove right margin on smaller screens */
+        margin-bottom: 20px; /* Add space between image and description */
+    }
+
+    .profile-picture img {
+        width: 150px; /* Reduce image size on smaller screens */
+    }
+
+    .description {
+        max-width: 100%; /* Allow full width for description */
+    }
+
+    .description p {
+        font-size: 1em; /* Slightly reduce font size for better readability */
+    }
+}
+
 /* Navigation Menu */
 nav ul {
     list-style-type: none;
@@ -84,7 +109,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: var(--white);
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 nav ul li a:hover {
@@ -99,7 +124,6 @@ nav ul li a:hover {
     color: var(--navy);
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .paper-title:hover {
@@ -107,8 +131,13 @@ nav ul li a:hover {
 }
 
 .arrow {
-    margin-left: 10px;
+    margin-left: 10px; /* Adjust spacing between title and arrow */
     font-size: 0.9em;
+    color: var(--navy);
+}
+
+.paper-title.active {
+    color: var(--gold); /* Gold color when abstract is displayed */
 }
 
 /* Section and Footer Styling */
@@ -129,6 +158,11 @@ section h2 {
     margin-top: 40px;
 }
 
+/* Section titles active styling */
+h3.active {
+    color: var(--gold); /* Gold color when a paper within the section is open */
+}
+
 /* Adjust for condensed width but aligned to the left */
 .paper-details {
     display: none;
@@ -137,6 +171,36 @@ section h2 {
     max-width: 800px;  /* Keep the width more condensed */
     margin-left: 30px; /* Move slightly to the right from the title */
     text-align: justify; /* Balance the text alignment */
+}
+
+
+/* Section titles and details for the Teaching section */
+.section-details {
+    display: none; /* Sections hidden initially */
+}
+
+.section-title {
+    cursor: pointer;
+    color: var(--navy);
+}
+
+.section-title:hover {
+    color: var(--gold);
+}
+
+/* Add active state for section title (gold when opened) */
+.section-title.active, .subsection-title.active {
+    color: var(--gold); /* Gold color when section is open */
+}
+
+/* Subsection Styling for PUC Chile */
+.subsection-title {
+    cursor: pointer;
+    color: var(--navy);
+}
+
+.subsection-title:hover {
+    color: var(--gold);
 }
 
 #contact {

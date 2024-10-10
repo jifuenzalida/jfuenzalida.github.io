@@ -102,48 +102,35 @@
     <h2>Teaching</h2>
 
     <!-- UC Berkeley Section -->
-    <h3 class="section-title" onclick="toggleSection('ucberkeley')">
-        UC Berkeley <span class="arrow">&#9662;</span>
-    </h3>
+    <h3 class="section-title" onclick="toggleSection('ucberkeley')">UC Berkeley <span class="arrow">&#9662;</span></h3>
     <div id="ucberkeley" class="section-details" style="padding-left: 30px;">
-        <h4 style="font-size: 1.2em;">Undergraduate Teaching Assistant</h4> <!-- Same font size as paper titles -->
-        <p style="font-size: 1em;">Topics in Economic Research (Fall 2020, Fall 2021 and Spring 2022)</p>
+        <h4 class="subsection-title" id="ucberkeley-undergrad" style="display:none; pointer-events: none; cursor: default; color: inherit;">Undergraduate</h4>
+        <div id="ucberkeley-class" class="section-details" style="padding-left: 20px; display:none;">
+            <p style="font-size: 1em;">Topics in Economic Research (Fall 2020, Fall 2021 and Spring 2022)</p>
+        </div>
     </div>
 
-    <div style="margin-top: 40px;"></div> <!-- Space between sections -->
-
     <!-- PUC Chile Section -->
-    <h3 class="section-title" onclick="toggleSection('pucchile')">
-        PUC Chile <span class="arrow">&#9662;</span>
-    </h3>
+    <h3 class="section-title" onclick="toggleSection('pucchile')">PUC Chile <span class="arrow">&#9662;</span></h3>
     <div id="pucchile" class="section-details" style="padding-left: 30px;">
+
         <!-- Part-Time Instructor Subsection -->
-        <h4 class="subsection-title" style="font-size: 1.2em;" onclick="toggleSection('parttime')">
-        Part-Time Instructor <span class="arrow">&#9662;</span>
-        </h4>
+        <h4 class="subsection-title" onclick="toggleSection('parttime')">Part-Time Instructor <span class="arrow">&#9662;</span></h4>
         <div id="parttime" class="section-details" style="padding-left: 20px;">
-        <p style="font-size: 1em;">Principles of Economics (Fall 2018 and Spring 2019)</p>
+            <p style="font-size: 1em;">Principles of Economics (Fall 2018 and Spring 2019)</p>
         </div>
 
-        <div style="margin-top: 20px;"></div> <!-- Space between subsections -->
-
         <!-- Graduate Subsection -->
-        <h4 class="subsection-title" style="font-size: 1.2em;" onclick="toggleSection('graduate')">
-            Graduate Teaching Assistant <span class="arrow">&#9662;</span>
-        </h4>
+        <h4 class="subsection-title" onclick="toggleSection('graduate')">Graduate <span class="arrow">&#9662;</span></h4>
         <div id="graduate" class="section-details" style="padding-left: 20px;">
             <p style="font-size: 1em;">Mechanism Design</p>
             <p style="font-size: 1em;">Economics of Institutions</p>
             <p style="font-size: 1em;">Game Theory</p>
         </div>
 
-        <div style="margin-top: 20px;"></div> <!-- Space between subsections -->
-
         <!-- Undergraduate Subsection -->
-        <h4 class="subsection-title" style="font-size: 1.2em;" onclick="toggleSection('undergraduate')">
-            Undergraduate Teaching Assistant <span class="arrow">&#9662;</span>
-        </h4>
-        <div id="undergraduate" class="section-details" style="padding-left: 20px;">
+        <h4 class="subsection-title" onclick="toggleSection('undergraduatepuc')">Undergraduate <span class="arrow">&#9662;</span></h4>
+        <div id="undergraduatepuc" class="section-details" style="padding-left: 20px;">
             <p style="font-size: 1em;">Introduction to Economics</p>
             <p style="font-size: 1em;">Microeconomics I</p>
             <p style="font-size: 1em;">Microeconomics II</p>
@@ -178,52 +165,82 @@
 
     <script>
         function togglePaperDetails(paperId) {
-            // Get the selected paper
             var selectedPaper = document.getElementById(paperId);
             var selectedTitle = document.querySelector(`[onclick="togglePaperDetails('${paperId}')"]`);
     
             // If it's open, close it and reset the title color
             if (selectedPaper.style.display === "block") {
                 selectedPaper.style.display = "none";
-                selectedTitle.classList.remove('active'); // Remove gold color if closed
-    
-                // Reset the section title color if no paper is open
-                checkSectionStatus();
+                selectedTitle.classList.remove('active');
             } else {
-                // Close all other papers
                 document.querySelectorAll('.paper-details').forEach(function(paper) {
                     paper.style.display = 'none';
                 });
                 document.querySelectorAll('.paper-title').forEach(function(title) {
-                    title.classList.remove('active'); // Remove gold color from all titles
+                    title.classList.remove('active');
                 });
-                
-                // Open the selected paper
+    
                 selectedPaper.style.display = "block";
-                selectedTitle.classList.add('active'); // Add gold color to the active title
-    
-                // Check section status and apply gold color if needed
-                checkSectionStatus();
+                selectedTitle.classList.add('active');
             }
         }
     
-        function checkSectionStatus() {
-            // If any paper in Working Papers is active, make the Working Papers heading gold
-            if (document.querySelector('#paper1.active') || document.querySelector('#paper2.active')) {
-                document.getElementById('working-papers').classList.add('active');
-            } else {
-                document.getElementById('working-papers').classList.remove('active');
-            }
+        function toggleSection(sectionId) {
+            var selectedSection = document.getElementById(sectionId);
+            var selectedTitle = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
     
-            // If any paper in Selected Work in Progress is active, make the Work in Progress heading gold
-            if (document.querySelector('#paper3.active') || document.querySelector('#paper4.active')) {
-                document.getElementById('work-in-progress').classList.add('active');
+            // Special case for UC Berkeley to auto-open/close Undergraduate and the class
+            if (sectionId === 'ucberkeley') {
+                var undergraduateSection = document.getElementById('ucberkeley-undergrad');
+                var classSection = document.getElementById('ucberkeley-class');
+    
+                if (selectedSection.style.display === "block") {
+                    // Close UC Berkeley section and its contents
+                    selectedSection.style.display = "none";
+                    undergraduateSection.style.display = "none";
+                    classSection.style.display = "none";
+                    selectedTitle.classList.remove('active');
+                } else {
+                    // Close all sections first
+                    document.querySelectorAll('.section-details').forEach(function(section) {
+                        section.style.display = 'none';
+                    });
+                    document.querySelectorAll('.section-title').forEach(function(title) {
+                        title.classList.remove('active');
+                    });
+    
+                    // Open UC Berkeley and its contents
+                    selectedSection.style.display = "block";
+                    undergraduateSection.style.display = "block"; // Show Undergraduate subsection
+                    classSection.style.display = "block"; // Show class name
+                    selectedTitle.classList.add('active');
+                }
+            } else if (selectedSection.style.display === "block") {
+                selectedSection.style.display = "none";
+                selectedTitle.classList.remove('active');
             } else {
-                document.getElementById('work-in-progress').classList.remove('active');
+                // Handle closing/opening of PUC Chile subsections
+                if (['parttime', 'graduate', 'undergraduatepuc'].includes(sectionId)) {
+                    document.querySelectorAll('#pucchile .section-details').forEach(function(section) {
+                        section.style.display = 'none';
+                    });
+                    document.querySelectorAll('.subsection-title').forEach(function(title) {
+                        title.classList.remove('active');
+                    });
+                } else {
+                    document.querySelectorAll('.section-details').forEach(function(section) {
+                        section.style.display = 'none';
+                    });
+                    document.querySelectorAll('.section-title').forEach(function(title) {
+                        title.classList.remove('active');
+                    });
+                }
+    
+                selectedSection.style.display = "block";
+                selectedTitle.classList.add('active');
             }
         }
     
-        // Ensure sections and papers are hidden by default when the page loads
         window.onload = function() {
             document.querySelectorAll('.section-details').forEach(function(section) {
                 section.style.display = 'none';

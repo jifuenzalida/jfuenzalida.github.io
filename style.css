@@ -24,11 +24,13 @@ header {
     margin: 0 auto;
     width: 80%;
     max-width: 1200px;
+    flex-wrap: wrap; /* Enable wrapping on smaller screens */
 }
 
 .profile-picture {
     text-align: center;
     margin-right: 50px;
+    flex-shrink: 0; /* Prevent image from shrinking */
 }
 
 .profile-picture img {
@@ -46,6 +48,7 @@ header {
 
 .description {
     max-width: 600px;
+    flex-grow: 1; /* Allow the description to take up available space */
 }
 
 .description p {
@@ -68,31 +71,6 @@ header {
     text-decoration: underline;
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column; /* Stack picture and description vertically */
-        text-align: center; /* Center text and image on smaller screens */
-    }
-
-    .profile-picture {
-        margin-right: 0; /* Remove right margin on smaller screens */
-        margin-bottom: 20px; /* Add space between image and description */
-    }
-
-    .profile-picture img {
-        width: 150px; /* Reduce image size on smaller screens */
-    }
-
-    .description {
-        max-width: 100%; /* Allow full width for description */
-    }
-
-    .description p {
-        font-size: 1em; /* Slightly reduce font size for better readability */
-    }
-}
-
 /* Navigation Menu */
 nav ul {
     list-style-type: none;
@@ -113,13 +91,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var (--gold);
+    color: var(--gold);
 }
 
 /* Paper Title Styling */
 .paper-title {
     margin-bottom: 20px;
-    font-size: 1.2em;
+    font-size: 1.2em; /* Adjusted for paper titles */
     cursor: pointer;
     color: var(--navy);
     display: flex;
@@ -131,7 +109,7 @@ nav ul li a:hover {
 }
 
 .arrow {
-    margin-left: 10px; /* Adjust spacing between title and arrow */
+    margin-left: 10px;
     font-size: 0.9em;
     color: var(--navy);
 }
@@ -158,11 +136,6 @@ section h2 {
     margin-top: 40px;
 }
 
-/* Section titles active styling */
-h3.active {
-    color: var(--gold); /* Gold color when a paper within the section is open */
-}
-
 /* Adjust for condensed width but aligned to the left */
 .paper-details {
     display: none;
@@ -173,36 +146,70 @@ h3.active {
     text-align: justify; /* Balance the text alignment */
 }
 
-
-/* Section titles and details for the Teaching section */
-.section-details {
-    display: none; /* Sections hidden initially */
+/* Section titles active styling */
+h3.active, h4.active {
+    color: var(--gold); /* Gold color when a paper or section is open */
 }
 
 .section-title {
     cursor: pointer;
     color: var(--navy);
+    font-size: 1.2em; /* Ensure section titles match paper titles */
 }
 
 .section-title:hover {
     color: var(--gold);
 }
 
-/* Add active state for section title (gold when opened) */
-.section-title.active, .subsection-title.active {
-    color: var(--gold); /* Gold color when section is open */
-}
-
-/* Subsection Styling for PUC Chile */
 .subsection-title {
     cursor: pointer;
     color: var(--navy);
+    font-size: 1.2em; /* Ensure subsection titles match paper titles */
 }
 
 .subsection-title:hover {
     color: var(--gold);
 }
 
+.section-details {
+    display: none; /* Sections hidden initially */
+}
+
+/* Class Names Styling */
+.section-details p {
+    font-size: 1em; /* Slightly smaller font for class names */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Stack picture and description vertically */
+        text-align: center; /* Center text and image on smaller screens */
+    }
+
+    .profile-picture {
+        margin-right: 0; /* Remove right margin on smaller screens */
+        margin-bottom: 20px; /* Add space between image and description */
+    }
+
+    .profile-picture img {
+        width: 150px; /* Reduce image size on smaller screens */
+    }
+
+    .description {
+        max-width: 100%; /* Allow full width for description */
+    }
+
+    .description p {
+        font-size: 1em; /* Slightly reduce font size for better readability */
+    }
+
+    .section-title, .subsection-title {
+        font-size: 1.1em; /* Slightly smaller font on mobile */
+    }
+}
+
+/* Footer */
 #contact {
     margin-bottom: 200px;
 }

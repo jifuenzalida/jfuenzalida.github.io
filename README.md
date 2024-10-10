@@ -6,7 +6,7 @@ This is the repository for my personal academic webpage, hosted on GitHub Pages.
 
 The website showcases my research, CV, and contact information. I am a PhD candidate in Economics at the University of California, Berkeley. My research focuses on the impact of homeownership subsidies on children's educational and labor market outcomes.
 
-The website is live at: [https://jfuenzalida.github.io](https://jfuenzalida.github.io)
+The website is live at: [https://jfuenzalida.github.io](https://jifuenzalida.github.io/jfuenzalida.github.io/)
 
 ## Structure
 
